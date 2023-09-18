@@ -1,4 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './routes'; // Importe o arquivo de rotas que você configurou
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.use(router); // Use o Vue Router
+
+app.mount('#app');

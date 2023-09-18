@@ -11,7 +11,7 @@
             <p>Fabric: {{ config.fabric }}</p>
             <button @click="openAddImagePopup(index)">Add Image</button>
           </div>
-        </div>
+        </div><b></b>
       </div>
     </div>
   </template>
@@ -47,12 +47,13 @@
         }, 1000); // Simulated delay
       },
       openAddImagePopup(index) {
-        // Navigate to the AddImagePopup component and pass the item and configuration index
-        this.$router.push({
-          name: 'addImage',
-          params: { itemId: this.item.id, configIndex: index },
-        });
-      },
+  // Certifique-se de que você está passando o índice como um parâmetro
+  this.$router.push({
+    name: 'addImage',
+    params: { itemId: this.item.id, configIndex: index },
+  });
+},
+
     },
   };
   </script>

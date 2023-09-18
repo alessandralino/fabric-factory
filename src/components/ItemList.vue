@@ -20,20 +20,32 @@
             <td>{{ item.fabrics.length }}</td>
             <td>{{ getTotalImages(item) }}</td>
             <td>
-              <router-link :to="{ name: 'upload', params: { itemId: item.id } }">
-                <button>Edit Photo</button>
-              </router-link>
+                <button @click="showModal = true">Edit Images</button>
             </td>
+
+            <CustomModal v-if="showModal">
+      <h2>Item ID: {{ item.id }}</h2>
+      <h3>Item Name: {{ item.name }}</h3>
+      <!-- Outros conteúdos do seu componente -->
+      <button @click="showModal = false">Close</button>
+    </CustomModal>
           </tr>
         </tbody>
       </table>
+
+      
     </div>
   </template>
   
   <script>
+  import CustomModal from './CustomModal.vue'; // Importe o componente CustomModal
   export default {
+    components: {
+    CustomModal,
+  },
     data() {
       return {
+        showModal: false,
         items: [], // Array to store the list of items
       };
     },
