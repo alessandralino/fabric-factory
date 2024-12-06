@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tshirt-factory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f89e5fb0dda6e7d254b142dedeadbb062267320c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23c9d34c1cd985fb18ae64ccbf30cfb9202d9212")]
 [assembly: System.Reflection.AssemblyProductAttribute("tshirt-factory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tshirt-factory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
