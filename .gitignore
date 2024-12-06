@@ -22,8 +22,4 @@ pnpm-debug.log*
 *.sln
 *.sw?
 .vs/
-/tshirt-factory/tshirt-factory/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
-/tshirt-factory/tshirt-factory/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/tshirt-factory/tshirt-factory/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.resources.dll
-/tshirt-factory/tshirt-factory/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/tshirt-factory/tshirt-factory/bin/Debug/net8.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+.dll/

@@ -1,6 +1,8 @@
 ﻿using tshirt_factory.src.Models;
 using tshirt_factory.src.Repositories;
 using tshirt_factory.src.Strategies;
+using System.Collections.Generic;
+using System.Security.Cryptography.Xml;
 
 namespace tshirt_factory.src.Services
 {
@@ -16,7 +18,7 @@ namespace tshirt_factory.src.Services
         public CustomTShirt CreateTShirt(string name, string variationType, string customData)
         {
             var strategy = CustomizationStrategyFactory.GetStrategy(variationType);
-            
+
             var customizedData = strategy.ApplyCustomization(customData);
 
             var tShirt = new CustomTShirt
@@ -31,24 +33,49 @@ namespace tshirt_factory.src.Services
             return tShirt;
         }
 
-        public void DeleteTShirt(int id)
+        public CustomTShirt GetTShirt(int id)
         {
-            throw new NotImplementedException();
+            var tShirt = _repository.GetById(id);
+            if (tShirt == null)
+            {
+                throw new KeyNotFoundException($"T-Shirt with ID {id} not found.");
+            }
+            return tShirt;
         }
 
         public IEnumerable<CustomTShirt> GetAllTShirts()
         {
-            throw new NotImplementedException();
-        }
-
-        public CustomTShirt GetTShirt(int id)
-        {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public void UpdateTShirt(int id, string name, string variationType, string customData)
         {
-            throw new NotImplementedException();
+            var tShirt = _repository.GetById(id);
+            if (tShirt == null)
+            {
+                throw new KeyNotFoundException($"T-Shirt with ID {id} not found.");
+            }
+
+            var strategy = CustomizationStrategyFactory.GetStrategy(variationType);
+
+            tShirt.Name = name;
+            tShirt.VariationType = variationType;
+            tShirt.CustomData = strategy.ApplyCustomization(customData);
+
+            _repository.Update(tShirt);
+        }
+
+        public void DeleteTShirt(int id)
+        {
+            var tShirt = _repository.GetById(id);
+            
+            if (tShirt == null)
+            {
+                throw new KeyNotFoundException($"T-Shirt with ID {id} not found.");
+            }
+
+            
+            _repository.Delete(tShirt.Id);
         }
     }
 }

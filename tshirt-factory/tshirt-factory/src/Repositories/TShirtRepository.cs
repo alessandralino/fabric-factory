@@ -43,5 +43,22 @@ namespace tshirt_factory.src.Repositories
                 _context.SaveChanges();
             }
         }
+
+        public IEnumerable<CustomTShirt> GetAll()
+        {
+            return _context.CustomTShirts.ToList();
+        }
+
+        public CustomTShirt GetById(int id)
+        {
+            var tShirt = _context.CustomTShirts.Find(id);
+
+            if (tShirt == null)
+            {
+                throw new KeyNotFoundException($"T-Shirt with ID {id} not found.");
+            }
+
+            return tShirt;
+        }
     }
 }

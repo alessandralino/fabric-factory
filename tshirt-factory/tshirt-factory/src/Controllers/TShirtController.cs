@@ -19,6 +19,36 @@ namespace tshirt_factory.src.Controllers
         {
             var tShirt = _service.CreateTShirt(name, variationType, customData);
             return Ok(tShirt); 
-        } 
+        }
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetTShirt(int id)
+        {
+            var tShirt = _service.GetTShirt(id);
+            if (tShirt == null) return NotFound();
+            return Ok(tShirt);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllTShirts()
+        {
+            var tShirts = _service.GetAllTShirts();
+            return Ok(tShirts);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateTShirt(int id, string name, string variationType, string customData)
+        {
+            _service.UpdateTShirt(id, name, variationType, customData);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTShirt(int id)
+        {
+            _service.DeleteTShirt(id);
+            return NoContent();
+        }
     }
 }

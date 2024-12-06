@@ -4,6 +4,10 @@ namespace tshirt_factory.src.Repositories
 {
     public interface ITShirtRepository
     {
+        IEnumerable<CustomTShirt> GetAll();
+
+        CustomTShirt GetById(int id);
+
         void Create(CustomTShirt tShirt);
 
         CustomTShirt Read(int id);
